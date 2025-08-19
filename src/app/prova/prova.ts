@@ -1,10 +1,20 @@
-import { Component, OnInit } from '@angular/core';
+import { CommonModule, NgForOf } from '@angular/common';
+import {
+  Component,
+  EventEmitter,
+  Input,
+  OnChanges,
+  OnInit,
+  Output,
+  SimpleChanges,
+} from '@angular/core';
 import { MatButton } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatSlideToggle } from '@angular/material/slide-toggle';
+import { SubProva } from '../subprova/subprova';
 @Component({
   selector: 'app-prova',
-  imports: [MatCardModule, MatSlideToggle, MatButton],
+  imports: [MatCardModule, MatSlideToggle, MatButton, NgForOf, CommonModule, SubProva],
   templateUrl: './prova.html',
   styleUrl: './prova.css',
 })
@@ -15,13 +25,21 @@ import { MatSlideToggle } from '@angular/material/slide-toggle';
 // AfterViewInit,
 // DoCheck,
 // OnDestroy
-export class Prova implements OnInit {
-  isDisabled = false;
+export class Prova implements OnInit, OnChanges {
+  @Input() data: any;
+  @Output() mandaDatiEvento = new EventEmitter<object>();
 
-  immagine = '';
-  immagine1 =
-    'https://plus.unsplash.com/premium_photo-1673264933048-3bd3f5b86f9d?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D';
-  immagine2 = 'https://material.angular.dev/assets/img/examples/shiba2.jpg';
+  nome = 'Luca';
+  oggetto = {
+    nome: 'Luca',
+    cognome: 'Caputa',
+  };
+  // isDisabled = false;
+
+  // immagine = '';
+  // immagine1 =
+  //   'https://plus.unsplash.com/premium_photo-1673264933048-3bd3f5b86f9d?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D';
+  // immagine2 = 'https://material.angular.dev/assets/img/examples/shiba2.jpg';
   // cani = [
   //   {
   //     nome: 'roger',
@@ -33,6 +51,9 @@ export class Prova implements OnInit {
   // ];
   constructor() {
     console.log('costruttore');
+  }
+  ngOnChanges(changes: SimpleChanges): void {
+    console.log(changes);
   }
   // ngAfterContentChecked(): void {
   //   console.log('ngAfterContentChecked');
@@ -54,7 +75,7 @@ export class Prova implements OnInit {
   // }
 
   ngOnInit(): void {
-    console.log('ngOnInit');
+    console.log(this.data);
     // let counter = 0;
     // setInterval(() => {
     //   // this.isDisabled = !this.isDisabled;
@@ -65,5 +86,9 @@ export class Prova implements OnInit {
     //   }
     //   counter++;
     // }, 1000);
+  }
+
+  mandaDati() {
+    this.mandaDatiEvento.emit(this.oggetto);
   }
 }

@@ -1,35 +1,62 @@
-<!-- <app-prova></app-prova> -->
+<p [appHighlight]="colore">ciao sono un paragrafo</p>
 
+<!-- <form #form>
+  <input type="text" name="name" value="ciao" />
+  <input type="number" name="number" value="1" />
+  <input type="text" [(ngModel)]="provaModel" name="prova" />
+  <button (click)="onClick()">invia</button>
+</form> -->
+
+<!-- <app-prova [data]="persone" (mandaDatiEvento)="onRiceviDati($event)"></app-prova>
+<button (click)="onClick()">Mostra</button>
+
+<ul>
+  <li>{{ datiRicevuti?.nome }}</li>
+</ul> -->
+
+<!-- 
 <button matButton="filled" style="margin: 15px" (click)="onClick()">Basic</button>
 
 <mat-form-field class="example-full-width">
   <mat-label>Favorite food</mat-label>
-  <input
-    matInput
-    placeholder="Ex. Pizza"
-    value="Sushi"
-    [(ngModel)]="title"
-    evidenziaElemento
-    disabled
-  />
+  <input matInput placeholder="Ex. Pizza" [(ngModel)]="title" />
 </mat-form-field>
-<p>{{ title }}</p>
+<p>{{ title }}</p> -->
+
+<!-- <p>{{ persone[0].nome }}</p> -->
 
 <!-- VERSIONE MODERNA -->
-@if (isVisible){
+
+<!-- IF -->
+
+<!-- @if (isVisible){
 <p>Visibile</p>
 } @else {
 <p>Non visibile</p>
-}
+} -->
+
+<!-- FOR -->
+
+<!-- @for (persona of persone; track $index) {
+<div>
+  {{ persona.nome }} {{ persona.cognome }}
+  @if (persona.isOnline){
+  <span style="padding-left: 15px">pallino verde</span>
+  }
+</div>
+} -->
+
+<!-- SWITCH -->
+
+<!-- @switch (stringa) { @case ("ciao") {
+<p>Ciao</p>
+} @case ("miao") {
+<p>Miao</p>
+} @default {
+<p>default</p>
+}} -->
 
 <!-- VERSIONE LEGACY -->
-<p *ngIf="isVisible">visibile</p>
-<p *ngIf="!isVisible">Non visibile</p>
-
-<!-- <p *ngIf="isVisible; else bloccoElse">Sono visibile</p>
-<ng-template #bloccoelse>
-  <p>non sono visibile</p>
-</ng-template> -->
 
 <!-- <ng-template></ng-template> -->
 
@@ -41,3 +68,70 @@
 <app-prova> cani[1].nome</app-prova> -->
 
 <!-- <mat-slide-toggle>Toggle me!</mat-slide-toggle> -->
+
+<!-- IF -->
+<!-- <ng-template *ngIf="isVisible; then bloccoIf; else bloccoElse"></ng-template>
+<ng-template #bloccoIf>
+  <p>sono visibile</p>
+</ng-template>
+<ng-template #bloccoElse>
+  <p>non sono visibile</p>
+</ng-template> -->
+
+<!-- FOR -->
+
+<!-- <ul>
+  <li
+    *ngFor="
+      let persona of persone;
+      index as i;
+      count as count;
+      first as isFirst;
+      last as isLast;
+      even as isEven;
+      odd as isOdd
+    "
+  >
+    <span *ngIf="i > 0" class="doubt"></span>
+    {{ i }} {{ count }} {{ isFirst }} {{ isLast }} {{ isEven }} {{ isOdd }} {{ persona.nome }} -
+    {{ persona.cognome }}
+    <span *ngIf="persona.isOnline" class="online"></span>
+    <span *ngIf="!persona.isOnline" class="offline"></span>
+  </li>
+</ul> -->
+<!-- <p *ngIf="isVisible">visibile</p>
+<p *ngIf="!isVisible">Non visibile</p> -->
+
+<!-- SWITCH -->
+
+<!-- <div [ngSwitch]="stringa">
+  <p *ngSwitchCase="'ciao'">ciao</p>
+  <p *ngSwitchCase="2">due</p>
+  <p *ngSwitchCase="3">tre</p>
+  <p *ngSwitchCase="4">quattro</p>
+  <p *ngSwitchDefault="">default</p>
+</div> -->
+
+<!-- STYLE -->
+
+<!-- <ul>
+  <li *ngFor="let persona of persone">
+    <span class="online" [ngStyle]="{ 'margin-bottom': '15px' }"></span>
+    <span class="online" [ngStyle]="{ marginBottom: '15px' }"></span>
+    <span class="online" [ngStyle]="{ backgroundColor: color }"></span>
+    <span
+      [ngClass]="{
+        'online prova': persona.isOnline,
+        offline: !persona.isOnline,
+        prova: persona.color == 'blue'
+      }"
+      [ngStyle]="{ background: !persona.isOnline && color }"
+    ></span>
+    <span
+      [ngClass]="persona.isOnline ? 'online' : 'offline'"
+      [ngStyle]="{ background: !persona.isOnline && color }"
+    ></span>
+
+    <span>{{ persona.nome }} {{ persona.cognome }}</span>
+  </li>
+</ul> -->

@@ -1,4 +1,19 @@
-<!-- Episodio 06 Data binding
+<button (click)="mandaDati()" [ngStyle]="{ 'margin-right': '15px' }">Manda dati al padre</button>
+
+<!-- <ul>
+  <li
+    [ngStyle]="{
+      color: persona.color
+    }"
+    *ngFor="let persona of data"
+  >
+    {{ persona.nome }} {{ persona.cognome }}
+  </li>
+</ul> -->
+
+<!-- <sub-prova [data]="data"></sub-prova> -->
+
+<!--  Data binding
 
 -cos'è
 -tipi di data binding: string interpolation, property binding, event binding, two way binding
@@ -7,7 +22,7 @@ one-way
 two-way -->
 
 <!-- <button matButton="filled" [disabled]="isDisabled" style="margin: 15px">Basic</button> -->
-<mat-card class="example-card" appearance="outlined">
+<!-- <mat-card class="example-card" appearance="outlined">
   <mat-card-header>
     <div mat-card-avatar class="example-header-image"></div>
     <mat-card-title>Shiba Inu</mat-card-title>
@@ -25,4 +40,4 @@ two-way -->
     <button matButton>LIKE</button>
     <button matButton>SHARE</button>
   </mat-card-actions>
-</mat-card>
+</mat-card> -->

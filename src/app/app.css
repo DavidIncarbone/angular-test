@@ -1,0 +1,25 @@
+.online,
+.offline,
+.doubt {
+  width: 15px;
+  height: 15px;
+  margin-right: 15px;
+  border-radius: 15px;
+  display: inline-block;
+}
+
+.online {
+  background-color: green;
+}
+.offline {
+  background-color: red;
+}
+
+.doubt {
+  background-color: orange;
+  margin-right: 15px;
+}
+
+.prova {
+  border-radius: 0;
+}
