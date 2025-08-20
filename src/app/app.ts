@@ -5,6 +5,7 @@ import { MatButton } from '@angular/material/button';
 import { MatFormField, MatInput, MatLabel } from '@angular/material/input';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { RouterOutlet } from '@angular/router';
+import { Border } from './direttive/border';
 import { Highlight } from './direttive/highlight';
 import { Prova } from './prova/prova';
 
@@ -15,6 +16,7 @@ import { Prova } from './prova/prova';
     RouterOutlet,
     Prova,
     Highlight,
+    Border,
     MatSlideToggleModule,
     MatLabel,
     MatFormField,
@@ -29,7 +31,8 @@ import { Prova } from './prova/prova';
   styleUrl: './app.css',
 })
 export class App implements OnInit, AfterViewInit {
-  colore = 'purple';
+  colore: string = 'blue';
+  border: string = '';
   ngOnInit(): void {
     console.log(this.form);
   }
@@ -52,6 +55,14 @@ export class App implements OnInit, AfterViewInit {
   // numero = 50;
   // stringa = 'ciaO';
   // color = 'red';
+
+  toggleBorder(border: string) {
+    this.border = this.border ? '' : border;
+  }
+
+  cambiaColoreEvidenziatore(colore: string) {
+    this.colore = colore;
+  }
 
   // onInput(event: Event) {
   //   this.title = (<HTMLInputElement>event.target).value;
